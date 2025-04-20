@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="حریم خصوصی کاربران در گارد آزادی. اطلاعات اتصال مانند ISP و وضعیت اتصال برای بهبود عملکرد ثبت می‌شود.">
+    <meta name="keywords" content="گارد آزادی, فیلترشکن, VPN, اینترنت آزاد, حفظ حریم خصوصی, امنیت آنلاین">
+    <meta name="author" content="Freedom Guard">
+    <meta property="og:title" content="حریم خصوصی | گارد آزادی">
+    <meta property="og:description"
+        content="حریم خصوصی کاربران در گارد آزادی. اطلاعات اتصال مانند ISP و وضعیت اتصال برای بهبود عملکرد ثبت می‌شود.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://freedom-guard.github.io/logo.png">
+    <meta property="og:url" content="https://freedom-guard.github.io/privacy.html">
+    <title>حریم خصوصی | گارد آزادی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white p-6">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-lg shadow-lg text-center">
+        <h1 class="text-4xl font-extrabold">حریم خصوصی کاربران</h1>
+        <p class="text-gray-200 mt-2">آخرین به‌روزرسانی: 16 فروردین 1404</p>
+        <p class="text-gray-200 mt-2"><a href="./">برگشت به وبسایت</a></p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 p-4 rounded-lg shadow-lg mt-6 flex justify-center space-x-4 rtl:space-x-reverse">
+        <a href="#intro" class="text-white hover:text-blue-400 transition">مقدمه</a>
+        <a href="#data-collection" class="text-white hover:text-blue-400 transition">اطلاعات ثبت‌شده</a>
+        <a href="#data-usage" class="text-white hover:text-blue-400 transition">استفاده از داده‌ها</a>
+        <a href="#firebase" class="text-white hover:text-blue-400 transition">Firebase</a>
+        <a href="#contact" class="text-white hover:text-blue-400 transition">تماس با ما</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto bg-gray-800 p-8 mt-6 rounded-lg shadow-lg leading-relaxed">
+
+        <!-- مقدمه -->
+        <section id="intro">
+            <h2 class="text-2xl font-semibold border-b pb-2 mb-4">۱. مقدمه</h2>
+            <p>فیلترشکن <strong>گارد آزادی</strong> ابزاری برای دسترسی سریع و امن به اینترنت آزاد است. ما هیچ اطلاعات
+                شخصی را جمع‌آوری نمی‌کنیم، اما برای بهبود سرویس و بررسی وضعیت اتصال، برخی اطلاعات فنی را ناشناس ثبت
+                می‌کنیم.</p>
+        </section>
+
+        <section id="data-collection" class="mt-6">
+            <h2 class="text-2xl font-semibold border-b pb-2 mb-4">۲. اطلاعات ثبت‌شده: حریم خصوصی شما در اولویت ماست</h2>
+            <p>هنگامی که از فیلترشکن ما استفاده می‌کنید، اطلاعات زیر به صورت کاملا <strong>ناشناس</strong> و با هدف
+                بهبود عملکرد و ارائه خدمات بهتر ثبت می‌شوند:</p>
+
+            <h3>اطلاعات پایه</h3>
+            <ul class="list-disc list-inside ml-4">
+                <li><strong>ISP (ارائه‌دهنده خدمات اینترنت):</strong> این اطلاعات به صورت ناشناس و فقط در صورتی که در
+                    تنظیمات برنامه ثبت کرده باشید، ثبت می‌شود.</li>
+                <li><strong>هسته استفاده‌شده (Core):</strong> نوع هسته‌ای که برای اتصال به فیلترشکن استفاده می‌کنید.
+                </li>
+                <li><strong>وضعیت اتصال:</strong> وضعیت اتصال شما (موفق یا ناموفق) به فیلترشکن.</li>
+                <li><strong>مهر زمانی (Timestamp):</strong> زمان دقیق اتصال یا قطع اتصال شما.</li>
+            </ul>
+
+            <h3>اطلاعات تکمیلی (فقط در صورت فعال بودن Freedom Link)</h3>
+            <ul class="list-disc list-inside ml-4">
+                <li><strong>Config:</strong> کانفیگ مورد استفاده برای اتصال.</li>
+                <li><strong>Ping:</strong> میزان تاخیر کانفیگ.</li>
+                <li><strong>Device:</strong> نوع سیستم عامل دستگاه شما.</li>
+            </ul>
+
+            <h3>رویدادهای ثبت‌شده</h3>
+            <ul class="list-disc list-inside ml-4">
+                <li><code>connected(isp, core)</code>: ثبت رویداد اتصال موفق به همراه ISP و هسته مورد استفاده.</li>
+                <li><code>not_connected_auto (isp)</code>: ثبت رویداد عدم اتصال خودکار به همراه ISP.</li>
+                <li><code>new_user (isp)</code>: ثبت رویداد کاربر جدید به همراه ISP.</li>
+                <li><code>app_started</code>: ثبت رویداد اجرای برنامه.</li>
+            </ul>
+
+            <h3>حریم خصوصی شما تضمین‌شده است</h3>
+            <p class="text-green-400 mt-2">✅ تمامی داده‌های ثبت‌شده کاملا <strong>ناشناس</strong> هستند و به هیچ وجه
+                شامل IP یا اطلاعات شناسایی شخصی شما نمی‌شوند.</p>
+        </section>
+
+        <!-- استفاده از داده‌ها -->
+        <section id="data-usage" class="mt-6">
+            <h2 class="text-2xl font-semibold border-b pb-2 mb-4">۳. این اطلاعات چگونه استفاده می‌شود؟</h2>
+            <p>ما از این داده‌ها برای:</p>
+            <ul class="list-disc list-inside ml-4">
+                <li>بررسی عملکرد و میزان موفقیت اتصال کاربران</li>
+                <li>تشخیص مشکلات احتمالی در دسترسی به سرورها</li>
+                <li>بهینه‌سازی سرعت و کیفیت سرویس</li>
+            </ul>
+            <p class="text-gray-400 mt-2">این داده‌ها تنها برای تحلیل داخلی استفاده شده و با هیچ شخص ثالثی به اشتراک
+                گذاشته نمی‌شود.</p>
+        </section>
+
+        <!-- Firebase و Firebase Messaging -->
+        <section id="firebase" class="mt-6">
+            <h2 class="text-2xl font-semibold border-b pb-2 mb-4">۴. استفاده از Firebase و Firebase Messaging</h2>
+            <p>نسخه موبایل گارد آزادی از <strong>Firebase</strong> و <strong>Firebase Messaging</strong> برای ارائه
+                اعلان‌ها و بهبود تجربه کاربری استفاده می‌کند. اطلاعات زیر ممکن است توسط Firebase جمع‌آوری شود:</p>
+            <ul class="list-disc list-inside ml-4">
+                <li>شناسه دستگاه (Device ID)</li>
+                <li>توکن اعلان (Notification Token)</li>
+                <li>اطلاعات مربوط به عملکرد برنامه (Crash Reports)</li>
+                <li>موفقیت یا عدم موفقیت اتصال </li>
+            </ul>
+            <p>این اطلاعات برای ارسال اعلان‌های مرتبط و بهبود عملکرد برنامه استفاده می‌شود و مطابق با سیاست‌های حریم
+                خصوصی Firebase مدیریت می‌شود.</p>
+            <p class="text-gray-400 mt-2">برای اطلاعات بیشتر، می‌توانید به <a
+                    href="https://firebase.google.com/support/privacy" class="text-blue-400 underline">سیاست‌های حریم
+                    خصوصی Firebase</a> مراجعه کنید.</p>
+        </section>
+
+        <section class="mt-6">
+            <h2 class="text-2xl font-semibold border-b pb-2 mb-4">۵. کانفیگ خودکار</h2>
+            <p>
+                ویژگی <strong>کانفیگ خودکار</strong> در گارد آزادی به‌صورت پیش‌فرض فعال است. این سیستم بر اساس
+                <strong>ISP انتخاب‌شده</strong> توسط کاربر، بهترین کانفیگ ممکن را برای اتصال به اینترنت آزاد تنظیم
+                می‌کند.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-4 pt-4">منبع تأمین کانفیگ خودکار چیست؟</h3>
+            <p>
+                گارد آزادی از هیچ تأمین‌کننده‌ی خاصی برای کانفیگ خودکار استفاده نمی‌کند. این کانفیگ‌ها از چند منبع تأمین
+                می‌شوند:
+            </p>
+            <ul class="list-disc list-inside ml-4 mt-2">
+                <li>کانفیگ‌های اهدایی کاربران</li>
+                <li>کانفیگ‌هایی که از طریق <strong>Freedom Link</strong> ارسال شده‌اند</li>
+                <li>کانفیگ های جمع آوری شده از کانال های تلگرامی یا منابع دیگر</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2 class="text-2xl font-semibold border-b pb-2 mb-4"> تماس با ما</h2>
+            <p>در صورت داشتن هرگونه سوال، می‌توانید با ما در ارتباط باشید.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 mt-6">
+        <p>© ۲۰۲۵ گارد آزادی | تمامی حقوق محفوظ است.</p>
+    </footer>
+
+</body>
+
+</html>
