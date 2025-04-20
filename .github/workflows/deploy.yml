@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # or your source branch
+      - main
 
 permissions:
   contents: read
@@ -21,9 +21,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload artifact 📦
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v2  
         with:
-          path: "."  # or specify the folder with your HTML files
+          path: "." 
 
   deploy:
     needs: build
@@ -34,4 +34,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v2  
